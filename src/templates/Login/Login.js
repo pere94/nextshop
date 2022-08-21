@@ -51,6 +51,8 @@ function Login(props) {
                         inputRef={passwordRef}
                     />
                 </div>
+                <p>Admin: admin@mail.com  |  admin123</p>
+                <p>User: jhon@jhon.com  |  1234567</p>
 
                 <button type='submit' className={styles.buttonWithBackground}>Log in</button>
                 <p className={styles.containerLogin_forgotPass}><a href='/recovery-password'>Forgot my Password</a> </p>
