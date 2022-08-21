@@ -1,0 +1,123 @@
+import React from "react";
+import axios from 'axios';
+import {AddProduct} from '../../services/api/productServices';
+import styles from '../../templates/AddProductModal/AddProductModal.module.scss';
+import { BiImageAdd } from "react-icons/bi";
+
+
+import {LabelInput} from '../../Components/LabelInput/LabelInput';
+import {DragDrop} from '../../Components/DragDrop/DragDrop';
+import { AppContext } from "../../Context/AppContext";
+
+
+// import { TbLayoutDashboard } from "react-icons/tb";
+
+{/* <LabelInput 
+    textLabel="Email"
+    // onChange={onChange}
+    nameInput="email"
+    idInput="containerLogin__email"
+    typeInput="email"
+    placeholder="email@yourdomain.com"
+    inputRef={emailRef}
+/> */}
+
+
+function AddProductModal(props) {
+    const {setProducts} = React.useContext(AppContext);
+
+    const titleRef = React.useRef(null);       
+    const priceRef = React.useRef(null); 
+    const categoryRef = React.useRef(null); 
+    const descriptionRef = React.useRef(null); 
+
+    const [imageName, setImageName] = React.useState("");
+    
+    
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const title = titleRef.current.value;
+        const price = priceRef.current.value;
+        const description = descriptionRef.current.value;
+        const category = categoryRef.current.value;
+
+        const data = {
+            "title": title,
+            "price": price,
+            "description": description,
+            "categoryId": category,
+            "images": [
+                "https://api.lorem.space/image/shoes?w=640&h=480&r=3031",
+                // imageName,
+            ]
+        };
+        console.log(data);
+        AddProduct(data).then((response) => {
+            console.log(response);
+            props.setShowAddModal(false);
+            props.setProductAddAlert(true);
+            console.log('Cerrando modal');
+
+            setTimeout(async () => {
+                const resp = await axios.get('https://api.escuelajs.co/api/v1/products');
+                setProducts(resp.data);
+                props.setProductAddAlert(false);
+            }, 2000);
+        });
+        
+    };
+
+    return (
+        <div className={styles.AddProductModal}>
+            
+            <form onSubmit={handleSubmit}>
+                <div className={styles.AddProductModal_title}>
+                    <LabelInput 
+                        textLabel="Title"
+                        nameInput="title"
+                        idInput="AddProductModal__title_input"
+                        typeInput="text"
+                        placeholder="Insert product name"
+                        inputRef={titleRef}
+                    />
+                </div>
+                <div className={styles.AddProductModal__price}>
+                    <LabelInput 
+                        textLabel="Price"
+                        nameInput="price"
+                        idInput="AddProductModal_price_input"
+                        typeInput="number"
+                        placeholder="Insert product price"
+                        inputRef={priceRef}
+                    />
+                </div>
+                <div className={styles.AddProductModal__category}>
+                    <label htmlFor="category" className={styles.label}>Category</label>
+                    <select ref={categoryRef} name="category" id="category" className={styles.input}>
+                        <option value="0" defaultValue key="AddProductModal_category_0">Select Category</option>
+                        <option value="2" key="AddProductModal_category_1">Electronics</option>
+                        <option value="3" key="AddProductModal_category_2">Furnitures</option>
+                        <option value="4" key="AddProductModal_category_3">Toys</option>
+                        <option value="1" key="AddProductModal_category_4">Clothes</option>
+                        <option value="5" key="AddProductModal_category_5">Others</option>
+                    </select>
+                </div>
+                <div className={styles.AddProductModal__description}>
+                    <label htmlFor="description" className={styles.label}>Description</label>
+                    <textarea ref={descriptionRef} id="description" name="description" className={styles.input} type="textarea" placeholder="Insert a Product Description"></textarea>
+                </div>
+                <div className={styles.AddProductModal__photo}>
+                    <DragDrop 
+                        setImageName={setImageName}
+                    />
+                </div>
+                <div className={styles.AddProductModal__SaveButton}>
+                    <button type="submit" className={styles.AddProductModal__SaveButton_button}>Save</button>
+                </div>
+            </form>
+         
+        </div>
+    );
+}
+
+export {AddProductModal}; 

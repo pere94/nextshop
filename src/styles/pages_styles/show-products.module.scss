@@ -1,0 +1,40 @@
+@use '../../styles/var&mixin/mymixin';
+@use '../../styles/var&mixin/myvar';
+
+.ShowProducts__addProduct{
+    width: 100%;
+    @include mymixin.objectsPosition(flex, row, nowrap, flex-start, center);
+    margin-bottom: 20px;
+}
+
+.ShowProducts__addProduct_button{
+    background-color: myvar.$version1;
+    color: white;
+    font-size: myvar.$fntSizeSm;
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow:  1px 1px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ShowProducts__addProduct_button:active{
+    scale: 0.9;
+}
+
+.ShowProducts__ModalAddProductContainer{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    left: 200px;
+    z-index: 23;
+
+    background-color: white;
+
+}
+
+.AddProductSuccesfull_Container{
+    @include mymixin.objectsPosition(flex, row, nowrap, flex-start, center);
+}

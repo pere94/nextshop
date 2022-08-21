@@ -1,0 +1,76 @@
+@use '../../styles/var&mixin/mymixin';
+@use '../../styles/var&mixin/myvar';
+
+.LinksRightBarDashboard_iconTitle{
+    @include mymixin.objectsPosition(flex, row, nowrap, flex-start, center);
+    width: 100%;
+    padding: 0px 10px;
+    cursor: pointer;
+}
+
+.LinksRightBarDashboard_iconTitle:hover{
+    border: 2px solid myvar.$version1;
+    border-radius: 5px;
+}
+
+.LinksRightBarDashboard_icon{
+    @include mymixin.objectsPosition(flex, row, nowrap, center, center);
+}
+
+.LinksRightBarDashboard_title{
+    color: white;
+    font-size: myvar.$fntSizeExSm;
+    font-weight: bold;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.LinksRightBarDashboard_arrowLeft{
+    position: absolute;
+    right: 15px;
+}
+
+.LinksRightBarDashboard_arrowLeftShow{
+    rotate: -90deg;
+}
+
+
+.LinksRightBarDashboard_ul{
+    color: white;
+    font-size: myvar.$fntSizeExxxSm;
+}
+
+.LinksRightBarDashboard_ul li{
+    list-style: none;
+    padding: 8px;
+    text-indent: 20px;
+    cursor: pointer;
+}
+
+.LinksRightBarDashboard_ul li:hover{
+    border: 2px solid myvar.$version1;
+    border-radius: 5px;
+}
+
+.LinksRightBarDashboard_lishow_active{
+    color: myvar.$version1;
+}
+
+.LinksRightBarDashboard_ul{
+    position: relative;
+    scale: 0.1;
+    height: 0px;
+    overflow: hidden;
+    transition: scale 0.1s;
+}
+
+.LinksRightBarDashboard_ulShow{
+    scale: 1 !important; 
+    height: 100% !important;
+}
+
+.NavRightBar_active{
+    border: 2px solid myvar.$version1;
+    border-radius: 5px;
+}
+

@@ -1,0 +1,12 @@
+@use '../../styles/var&mixin/mymixin';
+@use '../../styles/var&mixin/myvar';
+
+.LabelInput{
+    @include mymixin.Input(
+        myvar.$version4,
+        myvar.$gray,
+        myvar.$fntSizeSm,
+        100%, 
+        40px,
+    );
+}

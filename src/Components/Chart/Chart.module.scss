@@ -1,0 +1,11 @@
+@use '../../styles/var&mixin/mymixin';
+@use '../../styles/var&mixin/myvar';
+
+.BarChart{
+    background-color: white;
+    box-shadow: 1px 1px 12px rgba(255, 255, 255, 0.4);
+    width: 500px;
+    height: 280px;
+    padding: 20px;
+    border-radius: 20px;
+}

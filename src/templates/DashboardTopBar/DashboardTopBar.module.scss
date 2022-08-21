@@ -1,0 +1,70 @@
+@use '../../styles/var&mixin/mymixin';
+@use '../../styles/var&mixin/myvar';
+
+.DashboardTopBar{
+    box-sizing: border-box;
+    width: 100vw;
+    padding-left: 200px;
+    height: 50px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+.DashboardTopBar__contect{
+    @include mymixin.objectsPosition(flex, row, nowrap, space-between, center);
+    background-color: white;
+    border-bottom: 2px solid myvar.$version1;
+    width: 100%;
+    height: 50px;
+    padding: 0px 20px;
+    
+}
+
+.DashboardTopBar__contect_button{
+    @include mymixin.objectsPosition(flex, row, nowrap, center, center);
+    background-color: myvar.$version1;
+    box-shadow: 1px 1px 12px rgba(0,0,0,0.1);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 6px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.DashboardTopBar__contect_button:active{
+    scale: 0.9;
+}
+
+.DashboardTopBar__contect_button_IconBack{
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.DashboardTopBar__contect_UserInfo{
+    @include mymixin.objectsPosition(flex, row, nowrap, center, center);
+    cursor: pointer;
+}
+
+.DashboardTopBar__contect_UserInfo_arrowLeft{
+    margin-left: 5px;
+    fill: black;
+    width: 15px;
+    height: 15px;
+}
+
+.DashboardTopBar__contect_UserInfo_arrowDown{
+    rotate: -90deg;
+}
+
+.DashboardTopBar__contect_UserInfo_avatar{
+    margin-left: 10px;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+

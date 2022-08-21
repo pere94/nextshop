@@ -1,0 +1,72 @@
+@use '../../styles/var&mixin/mymixin';
+@use '../../styles/var&mixin/myvar';
+
+
+
+.TableListItem{
+    width: 100%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+// .AlertProductAction_Container{
+
+// }
+
+.TableListItem_table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.TableListItem_heading{
+    text-align: left;
+    padding: 8px;
+}
+
+.TableListItem_tableData{
+    text-align: left;
+    padding: 8px;
+}
+
+.TableListItem_tableData_image{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.titleImage_center{
+    @include mymixin.objectsPosition(flex, row, nowrap, flex-start, center);
+}
+
+.TableListItem_tableData_edit{
+    color: myvar.$version3;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.TableListItem_tableData_delete{
+    color: rgb(200, 5, 5);
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.TableListItem_tableData_edit:active{
+    scale: 0.9;
+}
+
+.TableListItem_tableData_delete:active{
+    scale: 0.9;
+}
+
+.TableListItem_row {
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+}
+
+.TableListItem_row:nth-child(even) {
+    background-color: #D6EEEE;
+}

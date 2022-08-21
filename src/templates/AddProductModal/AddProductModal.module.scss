@@ -1,0 +1,79 @@
+@use '../../styles/var&mixin/mymixin';
+@use '../../styles/var&mixin/myvar';
+
+.AddProductModal{
+    padding-bottom: 20px;
+    @include mymixin.objectsPosition(flex, row, nowrap, center, center);
+    position: fixed;
+    top: 50px;
+
+    
+}
+
+.AddProductModal form{
+    @include mymixin.objectsPosition(flex, row, wrap, center, center);
+}
+
+.AddProductModal_title{
+    width: 300px;
+    margin: 20px 10px 0px 10px;
+}
+
+.AddProductModal__price{
+    width: 300px;
+    margin: 20px 10px 0px 10px;
+}
+
+.AddProductModal__category{
+    min-width: 300px;
+    max-width: 620px;
+    margin: 20px 10px 0px 10px;
+    @include mymixin.Input(
+            myvar.$version4,
+            myvar.$gray,
+            myvar.$fntSizeSm,
+            100%, 
+            40px,
+    );
+}
+
+.AddProductModal__description{
+    min-width: 300px;
+    max-width: 620px;
+    margin: 20px 10px 0px 10px;
+    @include mymixin.Input(
+            myvar.$version4,
+            myvar.$gray,
+            myvar.$fntSizeSm,
+            100%, 
+            60px,
+    );
+}
+
+.AddProductModal__photo{
+    min-width: 300px;
+    max-width: 620px;
+    width: 100%;
+    margin: 20px 10px 0px 10px;
+    margin-top: 20px;
+}
+
+.AddProductModal__SaveButton_button{
+    position: fixed;
+    bottom: 10px;
+    right: 40px;
+    background-color: myvar.$version1;
+    color: white;
+    font-size: myvar.$fntSizeSm;
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow:  1px 1px 12px rgba(0, 0, 0, 0.1);
+}
+
+.AddProductModal__SaveButton_button:active{
+    scale: 0.9;
+}
+

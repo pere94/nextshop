@@ -1,7 +1,19 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+// /** @type {import('next').NextConfig} */ 
+
+module.exports = {
   reactStrictMode: true,
-  swcMinify: true,
+  images: {
+    domains: ['api.lorem.space','placeimg.com','www.facebook.com'],
+  },
+  experimental: { 
+    images: { allowFutureImage: true } },
 }
 
-module.exports = nextConfig
+// const nextConfig = {
+//   reactStrictMode: true,
+//   images: {
+//     domains: ['api.lorem.space'],
+//   } 
+// }
+
+// export default nextConfig
